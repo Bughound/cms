@@ -1,0 +1,26 @@
+{
+  "kind": "collectionType",
+  "collectionName": "zones",
+  "info": {
+    "name": "zone"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true
+  },
+  "attributes": {
+    "geojson": {
+      "type": "json"
+    },
+    "name": {
+      "type": "string"
+    },
+    "description": {
+      "type": "richtext"
+    },
+    "users": {
+      "plugin": "users-permissions",
+      "collection": "user"
+    }
+  }
+}

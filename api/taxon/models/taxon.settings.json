@@ -1,0 +1,28 @@
+{
+  "kind": "collectionType",
+  "collectionName": "taxons",
+  "info": {
+    "name": "taxon"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true
+  },
+  "attributes": {
+    "name": {
+      "type": "string"
+    },
+    "rank_name": {
+      "type": "string"
+    },
+    "taxon": {
+      "model": "taxon"
+    },
+    "author": {
+      "type": "string"
+    },
+    "year": {
+      "type": "integer"
+    }
+  }
+}

@@ -1,0 +1,39 @@
+{
+  "kind": "collectionType",
+  "collectionName": "specimen",
+  "info": {
+    "name": "Specimen"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true
+  },
+  "attributes": {
+    "image": {
+      "model": "file",
+      "via": "related",
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos"
+      ],
+      "plugin": "upload",
+      "required": false
+    },
+    "geojson": {
+      "type": "json"
+    },
+    "date": {
+      "type": "datetime"
+    },
+    "place": {
+      "type": "string"
+    },
+    "count": {
+      "type": "integer"
+    },
+    "wheater": {
+      "type": "json"
+    }
+  }
+}
