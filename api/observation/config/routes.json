@@ -2,48 +2,48 @@
   "routes": [
     {
       "method": "GET",
-      "path": "/specimen",
-      "handler": "specimen.find",
+      "path": "/observations",
+      "handler": "observation.find",
       "config": {
         "policies": []
       }
     },
     {
       "method": "GET",
-      "path": "/specimen/count",
-      "handler": "specimen.count",
+      "path": "/observations/count",
+      "handler": "observation.count",
       "config": {
         "policies": []
       }
     },
     {
       "method": "GET",
-      "path": "/specimen/:id",
-      "handler": "specimen.findOne",
+      "path": "/observations/:id",
+      "handler": "observation.findOne",
       "config": {
         "policies": []
       }
     },
     {
       "method": "POST",
-      "path": "/specimen",
-      "handler": "specimen.create",
+      "path": "/observations",
+      "handler": "observation.create",
       "config": {
         "policies": []
       }
     },
     {
       "method": "PUT",
-      "path": "/specimen/:id",
-      "handler": "specimen.update",
+      "path": "/observations/:id",
+      "handler": "observation.update",
       "config": {
         "policies": []
       }
     },
     {
       "method": "DELETE",
-      "path": "/specimen/:id",
-      "handler": "specimen.delete",
+      "path": "/observations/:id",
+      "handler": "observation.delete",
       "config": {
         "policies": []
       }

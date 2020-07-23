@@ -15,7 +15,7 @@
     "rank_name": {
       "type": "string"
     },
-    "taxon": {
+    "parent": {
       "model": "taxon"
     },
     "author": {

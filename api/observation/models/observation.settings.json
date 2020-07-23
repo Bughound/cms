@@ -1,8 +1,8 @@
 {
   "kind": "collectionType",
-  "collectionName": "specimen",
+  "collectionName": "observation",
   "info": {
-    "name": "Specimen"
+    "name": "Observation"
   },
   "options": {
     "increments": true,
@@ -13,12 +13,10 @@
       "model": "file",
       "via": "related",
       "allowedTypes": [
-        "images",
-        "files",
-        "videos"
+        "images"
       ],
       "plugin": "upload",
-      "required": false
+      "required": true
     },
     "geojson": {
       "type": "json"
@@ -30,10 +28,14 @@
       "type": "string"
     },
     "count": {
-      "type": "integer"
+      "type": "integer",
+      "default": 1
     },
     "wheater": {
       "type": "json"
+    },
+    "taxon": {
+      "model": "taxon"
     }
   }
 }
