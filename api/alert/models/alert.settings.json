@@ -1,0 +1,31 @@
+{
+  "kind": "collectionType",
+  "collectionName": "alerts",
+  "info": {
+    "name": "alert"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true
+  },
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "description": {
+      "type": "richtext"
+    },
+    "end_date": {
+      "type": "datetime"
+    },
+    "start_date": {
+      "type": "datetime"
+    },
+    "geojson": {
+      "type": "json"
+    },
+    "taxon": {
+      "model": "taxon"
+    }
+  }
+}

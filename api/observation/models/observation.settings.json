@@ -36,6 +36,10 @@
     },
     "taxon": {
       "model": "taxon"
+    },
+    "created_by": {
+      "plugin": "users-permissions",
+      "model": "user"
     }
   }
 }
