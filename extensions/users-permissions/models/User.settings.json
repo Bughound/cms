@@ -53,7 +53,7 @@
       "plugin": "users-permissions",
       "configurable": false
     },
-    "name": {
+    "first_name": {
       "type": "string"
     },
     "last_name": {
