@@ -25,18 +25,25 @@ module.exports = {
 
       const tensorflowResponse = await axios.post('http://localhost:5000/detections', formData, { headers: { ...formData.getHeaders(), } });
       const detections = tensorflowResponse.data.response[0].detections
-      detections.sort((a ,b) => b['confidence'] - a['confidence'])
-      const taxonNames = detections[0].class.split(' ')
-      const result = await strapi.query('taxon').findOne({ name: taxonNames[1], 'parent.name': taxonNames[0] })
-      if(result) {
-        data.taxon = result.id
+      const promises = detections.map(async item => {
+        const taxonNames = item.class.split(' ')
+        const response = await strapi.query('taxon').findOne({ name: taxonNames[1], 'parent.name': taxonNames[0] })
+        return {
+          taxon: response,
+          label: item.class,
+          confidence: item.confidence
+        }
+      })
+
+      const predictions = await Promise.all(promises)
+      predictions.sort((a ,b) => b['confidence'] - a['confidence'])
+
+      if(predictions[0].taxon) {
+        data.taxon = predictions[0].taxon.id
       }
+
       entity = await strapi.services.observation.create(data, { files });
-      entity.prediction = {
-        taxon: result,
-        label: detections[0].class,
-        confidence: detections[0].confidence
-      }
+      entity.predictions = predictions
     } else {
       entity = await strapi.services.observation.create(ctx.request.body);
     }
