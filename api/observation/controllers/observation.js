@@ -1,14 +1,12 @@
 'use strict';
 
 const axios = require('axios')
+const OpenWeather = require('../../../config/openweather')
+const TensorFlow = require('../../../config/tensorflow')
 const fs = require('fs')
 const FormData = require('form-data');
 const { parseMultipartData, sanitizeEntity } = require('strapi-utils');
-const tensorflow = {
-  protocol: 'http',
-  host: '192.168.0.210',
-  port: 5000
-}
+
 /**
  * Read the documentation (https://strapi.io/documentation/v3.x/concepts/controllers.html#core-controllers)
  * to customize this controller
@@ -21,9 +19,11 @@ module.exports = {
     if (ctx.is('multipart')) {
       const { data, files } = parseMultipartData(ctx);
       const formData = new FormData()
+      const coordinates = data.geojson.features[0].geometry.coordinates
+      
       formData.append('images', fs.createReadStream(files.image.path))
 
-      const tensorflowResponse = await axios.post('http://localhost:5000/detections', formData, { headers: { ...formData.getHeaders(), } });
+      const tensorflowResponse = await axios.post(`${TensorFlow.protocol}://${TensorFlow.host}:${TensorFlow.port}/detections`, formData, { headers: { ...formData.getHeaders(), } });
       const detections = tensorflowResponse.data.response[0].detections
       const promises = detections.map(async item => {
         const taxonNames = item.class.split(' ')
@@ -41,6 +41,18 @@ module.exports = {
       if(predictions[0].taxon) {
         data.taxon = predictions[0].taxon.id
       }
+
+      const OpenWeatherResponse = await axios.get(`${OpenWeather.protocol}://${OpenWeather.host}${OpenWeather.path}`, { 
+        params: {
+          lat: coordinates[1],
+          lon: coordinates[0],
+          lang: 'es',
+          units: 'metric',
+          appid: OpenWeather.apiKey
+        }
+      })
+      
+      data.weather = OpenWeatherResponse.data
 
       entity = await strapi.services.observation.create(data, { files });
       entity.predictions = predictions
