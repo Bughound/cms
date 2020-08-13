@@ -53,6 +53,7 @@ module.exports = {
       })
       
       data.weather = OpenWeatherResponse.data
+      data.created_by = ctx.state.user.id
 
       entity = await strapi.services.observation.create(data, { files });
       entity.predictions = predictions
