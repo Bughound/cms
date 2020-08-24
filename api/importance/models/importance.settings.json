@@ -9,11 +9,15 @@
     "timestamps": true
   },
   "attributes": {
-    "type": {
-      "type": "string"
+    "level": {
+      "type": "integer",
+      "max": 3
+    },
+    "importance_group": {
+      "model": "importance-group"
     },
     "description": {
-      "type": "richtext"
+      "type": "text"
     }
   }
 }

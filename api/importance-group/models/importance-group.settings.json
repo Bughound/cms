@@ -1,0 +1,19 @@
+{
+  "kind": "collectionType",
+  "collectionName": "importance_groups",
+  "info": {
+    "name": "ImportanceGroup"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true
+  },
+  "attributes": {
+    "type": {
+      "type": "string"
+    },
+    "description": {
+      "type": "richtext"
+    }
+  }
+}

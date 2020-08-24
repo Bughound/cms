@@ -1,0 +1,52 @@
+{
+  "routes": [
+    {
+      "method": "GET",
+      "path": "/importance-groups",
+      "handler": "importance-group.find",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/importance-groups/count",
+      "handler": "importance-group.count",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/importance-groups/:id",
+      "handler": "importance-group.findOne",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/importance-groups",
+      "handler": "importance-group.create",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "PUT",
+      "path": "/importance-groups/:id",
+      "handler": "importance-group.update",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "DELETE",
+      "path": "/importance-groups/:id",
+      "handler": "importance-group.delete",
+      "config": {
+        "policies": []
+      }
+    }
+  ]
+}
