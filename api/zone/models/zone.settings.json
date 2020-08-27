@@ -21,6 +21,16 @@
     "users": {
       "plugin": "users-permissions",
       "collection": "user"
+    },
+    "risk": {
+      "type": "boolean"
+    },
+    "type": {
+      "type": "enumeration",
+      "enum": [
+        "URBAN",
+        "CROPS"
+      ]
     }
   }
 }

@@ -14,6 +14,26 @@
     },
     "description": {
       "type": "richtext"
+    },
+    "crop_cycle": {
+      "type": "integer"
+    },
+    "image": {
+      "model": "file",
+      "via": "related",
+      "allowedTypes": [
+        "images"
+      ],
+      "plugin": "upload",
+      "required": false
+    },
+    "type": {
+      "type": "enumeration",
+      "enum": [
+        "FRUIT",
+        "VEGETABLE",
+        "GRAIN"
+      ]
     }
   }
 }
