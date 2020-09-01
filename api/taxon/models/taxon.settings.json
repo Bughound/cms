@@ -43,6 +43,9 @@
     },
     "importances": {
       "collection": "importance"
+    },
+    "pathogens": {
+      "collection": "pathogen"
     }
   }
 }

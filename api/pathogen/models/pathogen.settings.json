@@ -1,0 +1,24 @@
+{
+  "kind": "collectionType",
+  "collectionName": "pathogens",
+  "info": {
+    "name": "pathogen"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true
+  },
+  "attributes": {
+    "name": {
+      "type": "string"
+    },
+    "symptoms": {
+      "collection": "symptoms"
+    },
+    "importance": {
+      "type": "integer",
+      "max": 3,
+      "default": 0
+    }
+  }
+}

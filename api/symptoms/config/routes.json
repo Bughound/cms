@@ -1,0 +1,52 @@
+{
+  "routes": [
+    {
+      "method": "GET",
+      "path": "/symptoms",
+      "handler": "symptoms.find",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/symptoms/count",
+      "handler": "symptoms.count",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/symptoms/:id",
+      "handler": "symptoms.findOne",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/symptoms",
+      "handler": "symptoms.create",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "PUT",
+      "path": "/symptoms/:id",
+      "handler": "symptoms.update",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "DELETE",
+      "path": "/symptoms/:id",
+      "handler": "symptoms.delete",
+      "config": {
+        "policies": []
+      }
+    }
+  ]
+}
