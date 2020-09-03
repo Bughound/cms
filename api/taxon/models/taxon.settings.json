@@ -44,8 +44,8 @@
     "importances": {
       "collection": "importance"
     },
-    "pathogens": {
-      "collection": "pathogen"
+    "pathogen": {
+      "model": "pathogen"
     }
   }
 }

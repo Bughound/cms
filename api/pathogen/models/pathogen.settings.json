@@ -15,10 +15,12 @@
     "symptoms": {
       "collection": "symptoms"
     },
-    "importance": {
-      "type": "integer",
-      "max": 3,
-      "default": 0
+    "type": {
+      "type": "enumeration",
+      "enum": [
+        "Veneno",
+        "Enfermedad"
+      ]
     }
   }
 }
