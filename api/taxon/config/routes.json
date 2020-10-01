@@ -25,6 +25,14 @@
       }
     },
     {
+      "method": "GET",
+      "path": "/taxons/:id/statistics",
+      "handler": "taxon.statistics",
+      "config": {
+        "policies": []
+      }
+    },
+    {
       "method": "POST",
       "path": "/taxons",
       "handler": "taxon.create",
