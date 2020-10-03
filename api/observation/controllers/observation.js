@@ -1,11 +1,13 @@
 'use strict';
 
 const axios = require('axios')
+const turf = require('@turf/turf')
 const OpenWeather = require('../../../config/openweather')
 const TensorFlow = require('../../../config/tensorflow')
 const fs = require('fs')
 const FormData = require('form-data');
 const { parseMultipartData, sanitizeEntity } = require('strapi-utils');
+const filterGeoreferenceParams = ['lat', 'long', 'distance']
 
 /**
  * Read the documentation (https://strapi.io/documentation/v3.x/concepts/controllers.html#core-controllers)
@@ -61,5 +63,38 @@ module.exports = {
       entity = await strapi.services.observation.create(ctx.request.body);
     }
     return sanitizeEntity(entity, { model: strapi.models.observation });
-  }
+  },
+
+  async find(ctx) {
+    const georeferenceParams = Object.assign({}, ...filterGeoreferenceParams.map(param => { 
+      const obj = Object.assign({}, { [param]: ctx.query[param] })
+      delete ctx.query[param]
+      return obj
+    }))
+
+    let entities;
+
+    if (ctx.query._q) {
+      entities = await strapi.services.observation.search(ctx.query)
+    } else {
+      entities = await strapi.services.observation.find(ctx.query)
+    }
+
+    if(georeferenceParams.lat && georeferenceParams.long && georeferenceParams.distance) {
+      let distance
+      entities = entities.filter(entity => { 
+        try {
+          let from = turf.point(entity.geojson.features[0].geometry.coordinates)
+          let to = turf.point([georeferenceParams.long, georeferenceParams.lat])
+
+          distance = turf.distance(from, to)
+          return distance <= georeferenceParams.distance
+        } catch (error) {
+          return false
+        }
+      })
+    }
+
+    return entities.map(entity => sanitizeEntity(entity, { model: strapi.models.observation }))
+  },
 };
