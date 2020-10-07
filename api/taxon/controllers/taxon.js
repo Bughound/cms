@@ -10,13 +10,22 @@ const { sanitizeEntity } = require('strapi-utils');
 module.exports = {
   async statistics(ctx) {
     const months = new Array(12).fill(0);
+    let years = {}
     const observations = await strapi.query('observation').find({ 'taxon.id': ctx.params.id });
     const weather = observations.filter(obs => obs.weather != null).map(obs => obs.weather);
     
-    observations.forEach(observation => { months[(new Date(observation.date)).getMonth()]++ })
+    observations.forEach(observation => { 
+      const date = new Date(observation.date)
+      const observationYear = date.getFullYear()
+
+      if(!years[observationYear]) {
+        years[observationYear] = new Array(12).fill(0);
+      }
+      years[observationYear][date.getMonth()]++
+    })
 
     const data =  {
-      date_count: months,
+      date_count: years,
       temp: {
         min: Math.min(...weather.map(w => w.main.temp)),
         max: Math.max(...weather.map(w => w.main.temp))
