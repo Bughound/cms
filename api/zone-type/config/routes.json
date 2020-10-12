@@ -1,0 +1,52 @@
+{
+  "routes": [
+    {
+      "method": "GET",
+      "path": "/zone-types",
+      "handler": "zone-type.find",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/zone-types/count",
+      "handler": "zone-type.count",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/zone-types/:id",
+      "handler": "zone-type.findOne",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/zone-types",
+      "handler": "zone-type.create",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "PUT",
+      "path": "/zone-types/:id",
+      "handler": "zone-type.update",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "DELETE",
+      "path": "/zone-types/:id",
+      "handler": "zone-type.delete",
+      "config": {
+        "policies": []
+      }
+    }
+  ]
+}

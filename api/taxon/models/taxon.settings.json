@@ -46,6 +46,15 @@
     },
     "pathogen": {
       "model": "pathogen"
+    },
+    "habitats": {
+      "collection": "habitat"
+    },
+    "zone_types": {
+      "collection": "zone-type"
+    },
+    "habitat_description": {
+      "type": "richtext"
     }
   }
 }

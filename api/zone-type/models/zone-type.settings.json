@@ -1,0 +1,19 @@
+{
+  "kind": "collectionType",
+  "collectionName": "zone_types",
+  "info": {
+    "name": "zoneType"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true
+  },
+  "attributes": {
+    "name": {
+      "type": "string"
+    },
+    "description": {
+      "type": "string"
+    }
+  }
+}
