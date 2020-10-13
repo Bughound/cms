@@ -79,6 +79,8 @@ module.exports = {
     } else {
       entities = await strapi.services.observation.find(ctx.query)
     }
+    const parentIds = entities.map(e => e.taxon.parent).filter(taxon => taxon)
+    const parentEntity = await strapi.services.taxon.find({ id_in: parentIds })
 
     if(georeferenceParams.lat && georeferenceParams.long && georeferenceParams.distance) {
       let distance
@@ -95,6 +97,9 @@ module.exports = {
       })
     }
 
-    return entities.map(entity => sanitizeEntity(entity, { model: strapi.models.observation }))
+    return entities.map(entity => {
+      entity.taxon.parent = entity.taxon.parent ? (parentEntity.find(parent => parent.id === entity.taxon.parent) || null) : entity.taxon.parent
+      return sanitizeEntity(entity, { model: strapi.models.observation })
+    })
   },
 };
