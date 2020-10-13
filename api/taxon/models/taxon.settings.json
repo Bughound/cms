@@ -55,6 +55,18 @@
     },
     "habitat_description": {
       "type": "richtext"
+    },
+    "economic": {
+      "type": "integer",
+      "max": 3,
+      "min": 0,
+      "default": 0
+    },
+    "sanitary": {
+      "type": "integer",
+      "max": 3,
+      "min": 0,
+      "default": 0
     }
   }
 }

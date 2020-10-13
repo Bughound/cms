@@ -17,7 +17,7 @@
       "model": "importance-group"
     },
     "description": {
-      "type": "text"
+      "type": "string"
     }
   }
 }

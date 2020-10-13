@@ -33,9 +33,15 @@ module.exports = {
         max: hoursCount.indexOf(Math.max(...hoursCount)),
         min: hoursCount.indexOf(Math.min.apply(null, hoursCount.filter(Boolean)))
       },
-      temp: {
-        min: Math.min(...weather.map(w => w.main.temp)),
-        max: Math.max(...weather.map(w => w.main.temp))
+      weather: {
+        temp: {
+          min: Math.min(...weather.map(w => w.main.temp)),
+          max: Math.max(...weather.map(w => w.main.temp))
+        },
+        humidity: {
+          min: Math.min(...weather.map(w => w.main.humidity)),
+          max: Math.max(...weather.map(w => w.main.humidity))
+        }
       }
     }
     ctx.send(data)
