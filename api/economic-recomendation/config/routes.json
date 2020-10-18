@@ -1,0 +1,52 @@
+{
+  "routes": [
+    {
+      "method": "GET",
+      "path": "/economic-recomendations",
+      "handler": "economic-recomendation.find",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/economic-recomendations/count",
+      "handler": "economic-recomendation.count",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/economic-recomendations/:id",
+      "handler": "economic-recomendation.findOne",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/economic-recomendations",
+      "handler": "economic-recomendation.create",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "PUT",
+      "path": "/economic-recomendations/:id",
+      "handler": "economic-recomendation.update",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "DELETE",
+      "path": "/economic-recomendations/:id",
+      "handler": "economic-recomendation.delete",
+      "config": {
+        "policies": []
+      }
+    }
+  ]
+}

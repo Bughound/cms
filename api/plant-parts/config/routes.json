@@ -1,0 +1,52 @@
+{
+  "routes": [
+    {
+      "method": "GET",
+      "path": "/plant-parts",
+      "handler": "plant-parts.find",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/plant-parts/count",
+      "handler": "plant-parts.count",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/plant-parts/:id",
+      "handler": "plant-parts.findOne",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/plant-parts",
+      "handler": "plant-parts.create",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "PUT",
+      "path": "/plant-parts/:id",
+      "handler": "plant-parts.update",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "DELETE",
+      "path": "/plant-parts/:id",
+      "handler": "plant-parts.delete",
+      "config": {
+        "policies": []
+      }
+    }
+  ]
+}

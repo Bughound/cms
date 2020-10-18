@@ -67,6 +67,15 @@
       "max": 3,
       "min": 0,
       "default": 0
+    },
+    "hosts": {
+      "collection": "plant"
+    },
+    "plant_parts": {
+      "collection": "plant-parts"
+    },
+    "economic_recomendations": {
+      "collection": "economic-recomendation"
     }
   }
 }
