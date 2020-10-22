@@ -1,0 +1,19 @@
+{
+  "kind": "collectionType",
+  "collectionName": "biological_relationship_types",
+  "info": {
+    "name": "biologicalRelationshipType"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true
+  },
+  "attributes": {
+    "name": {
+      "type": "string"
+    },
+    "inverted": {
+      "type": "string"
+    }
+  }
+}

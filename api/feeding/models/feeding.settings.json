@@ -1,0 +1,19 @@
+{
+  "kind": "collectionType",
+  "collectionName": "feedings",
+  "info": {
+    "name": "feeding"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true
+  },
+  "attributes": {
+    "name": {
+      "type": "string"
+    },
+    "description": {
+      "type": "text"
+    }
+  }
+}

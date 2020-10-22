@@ -1,0 +1,52 @@
+{
+  "routes": [
+    {
+      "method": "GET",
+      "path": "/reproductions",
+      "handler": "reproduction.find",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/reproductions/count",
+      "handler": "reproduction.count",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/reproductions/:id",
+      "handler": "reproduction.findOne",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/reproductions",
+      "handler": "reproduction.create",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "PUT",
+      "path": "/reproductions/:id",
+      "handler": "reproduction.update",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "DELETE",
+      "path": "/reproductions/:id",
+      "handler": "reproduction.delete",
+      "config": {
+        "policies": []
+      }
+    }
+  ]
+}

@@ -76,6 +76,9 @@
     },
     "economic_recomendations": {
       "collection": "economic-recomendation"
+    },
+    "feeding": {
+      "model": "feeding"
     }
   }
 }

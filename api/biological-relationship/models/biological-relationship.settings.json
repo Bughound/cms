@@ -1,0 +1,22 @@
+{
+  "kind": "collectionType",
+  "collectionName": "biological_relationships",
+  "info": {
+    "name": "biologicalRelationship"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true
+  },
+  "attributes": {
+    "subject": {
+      "model": "taxon"
+    },
+    "objective": {
+      "model": "taxon"
+    },
+    "biological_relationship_type": {
+      "model": "biological-relationship-type"
+    }
+  }
+}

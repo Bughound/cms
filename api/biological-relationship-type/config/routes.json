@@ -1,0 +1,52 @@
+{
+  "routes": [
+    {
+      "method": "GET",
+      "path": "/biological-relationship-types",
+      "handler": "biological-relationship-type.find",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/biological-relationship-types/count",
+      "handler": "biological-relationship-type.count",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/biological-relationship-types/:id",
+      "handler": "biological-relationship-type.findOne",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/biological-relationship-types",
+      "handler": "biological-relationship-type.create",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "PUT",
+      "path": "/biological-relationship-types/:id",
+      "handler": "biological-relationship-type.update",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "DELETE",
+      "path": "/biological-relationship-types/:id",
+      "handler": "biological-relationship-type.delete",
+      "config": {
+        "policies": []
+      }
+    }
+  ]
+}

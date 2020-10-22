@@ -1,0 +1,19 @@
+{
+  "kind": "collectionType",
+  "collectionName": "reproductions",
+  "info": {
+    "name": "reproduction"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true
+  },
+  "attributes": {
+    "name": {
+      "type": "string"
+    },
+    "description": {
+      "type": "text"
+    }
+  }
+}
