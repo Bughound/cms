@@ -15,22 +15,22 @@
     "name": {
       "type": "string"
     },
-    "description": {
-      "type": "richtext"
-    },
     "users": {
       "plugin": "users-permissions",
       "collection": "user"
     },
-    "risk": {
+    "notifications": {
       "type": "boolean"
     },
     "type": {
       "type": "enumeration",
       "enum": [
-        "URBAN",
-        "CROPS"
+        "economic",
+        "sanitary"
       ]
+    },
+    "plants": {
+      "collection": "plant"
     }
   }
 }
