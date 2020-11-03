@@ -9,23 +9,15 @@
     "timestamps": true
   },
   "attributes": {
-    "title": {
-      "type": "string"
+    "observation": {
+      "model": "observation"
     },
-    "description": {
-      "type": "richtext"
+    "seen": {
+      "type": "boolean",
+      "default": false
     },
-    "end_date": {
-      "type": "datetime"
-    },
-    "start_date": {
-      "type": "datetime"
-    },
-    "geojson": {
-      "type": "json"
-    },
-    "taxon": {
-      "model": "taxon"
+    "zone": {
+      "model": "zone"
     }
   }
 }

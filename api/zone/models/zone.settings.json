@@ -31,6 +31,11 @@
     },
     "plants": {
       "collection": "plant"
+    },
+    "distance": {
+      "type": "integer",
+      "max": 300,
+      "default": 50
     }
   }
 }
