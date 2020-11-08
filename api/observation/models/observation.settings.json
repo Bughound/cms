@@ -24,9 +24,6 @@
     "date": {
       "type": "datetime"
     },
-    "place": {
-      "type": "string"
-    },
     "count": {
       "type": "integer",
       "default": 1
