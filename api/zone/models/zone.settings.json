@@ -36,6 +36,10 @@
       "type": "integer",
       "max": 300,
       "default": 50
+    },
+    "alerts": {
+      "via": "zone",
+      "collection": "alert"
     }
   }
 }

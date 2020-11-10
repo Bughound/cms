@@ -17,7 +17,8 @@
       "default": false
     },
     "zone": {
-      "model": "zone"
+      "model": "zone",
+      "via": "alerts"
     }
   }
 }

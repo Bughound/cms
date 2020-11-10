@@ -14,6 +14,28 @@ const filterGeoreferenceParams = ['lat', 'long', 'distance']
  * to customize this controller
  */
 
+const searchZones = async (coordinates, zoneType) => (await strapi.services.zone.find({ type: zoneType })).filter(zone => {
+  const from = turf.point(coordinates)
+  const to = turf.point(zone.geojson.geometry.coordinates)
+  const distance = turf.distance(from, to)
+
+  return distance < zone.distance
+})
+
+const getImportance = (taxon) => {
+  if(taxon.sanitary > 0) {
+    return 'sanitary'
+  } else if (taxon.economic > 0) {
+    return 'economic'
+  }
+}
+
+const createAlert = async (zones, observationId) => await Promise.all(zones.map(async (zone) => await strapi.services.alert.create({
+    zone: zone.id,
+    observation: observationId
+  })
+))
+
 module.exports = {
 
   async create(ctx) {
@@ -40,8 +62,10 @@ module.exports = {
       const predictions = await Promise.all(promises)
       predictions.sort((a ,b) => b['confidence'] - a['confidence'])
 
-      if(predictions[0].taxon) {
-        data.taxon = predictions[0].taxon.id
+      const selectedTaxon = predictions[0].taxon
+
+      if(selectedTaxon) {
+        data.taxon = selectedTaxon.id
       }
 
       const OpenWeatherResponse = await axios.get(`${OpenWeather.protocol}://${OpenWeather.host}${OpenWeather.path}`, { 
@@ -59,6 +83,7 @@ module.exports = {
 
       entity = await strapi.services.observation.create(data, { files });
       entity.predictions = predictions
+      await createAlert((await searchZones(coordinates, getImportance(selectedTaxon))), entity.id)
     } else {
       entity = await strapi.services.observation.create(ctx.request.body);
     }
